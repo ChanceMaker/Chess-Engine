@@ -27,21 +27,21 @@ app.on(
 
         var OpenWindow = function()
         {
-            mainWindow = new BrowserWindow( {width: 800, height: 600} );
+            mainWindow = new BrowserWindow( {width: 400, height: 500} );
             //mainWindow.loadURL( "index.html" );
             mainWindow.loadURL( mainAddr );
             //mainWindow.webContents.openDevTools();
             var python = require('child_process').spawn('python', ['./hello.py']);
-    python.stdout.on('data',function(data){
-	    console.log("data: ",data.toString('utf8'));
-    });
+            python.stdout.on('data',function(data){
+                console.log("data: ",data.toString('utf8'));
+            });
             mainWindow.on(
                 "closed",
                 function()
                 {
   
                     mainWindow = null;
-                    
+
                     subpy.kill( "SIGINT" );
                 }
             );
