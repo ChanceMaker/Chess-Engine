@@ -1,3 +1,4 @@
+const { DiffieHellmanGroup } = require("crypto");
 const electron = require( "electron" );
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -20,7 +21,7 @@ app.on(
     "ready",
     function()
     {
-        var subpy = require( "child_process" ).spawn( "python", [ "./hello.py" ] );
+        var subpy = require( "child_process" ).spawn( "python", [ "/lib/hello.py" ] );
         // var subpy = require( "child_process" ).spawn( "./dist/hello.exe" );
         var rp = require( "request-promise" );
         var mainAddr = "http://127.0.0.1:3000/app/index.html";

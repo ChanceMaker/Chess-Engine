@@ -16,13 +16,7 @@ var config = {
     console.log('Current position as a FEN string:')
     console.log(board.fen())
   }
-  $.ajax({
-    type: "POST",
-    url: "/app/hello.py",
-    data: { param: text}
-  }).done(function( o ) {
-     // do something
-  });
+  
 
   
   $('#showPositionBtn').on('click', clickShowPositionBtn)
